@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
-import Bar from './components/Bar/Bar.js';
 
 
 
-class App extends Component () {
+
+class App extends Component {
   state = {
     isVisible: false
   }
 
-  showBar = () => {
-    this.setSate({
-      isVisible: true
-    });
-  }
+  // showBar = () => {
+  //   this.setSate({
+  //     isVisible: true
+  //   });
+  // }
 
-  hideBar = () => {
-    this.setState({
-      isVisible: false
-    });
-  }
+  // hideBar = () => {
+  //   this.setState({
+  //     isVisible: false
+  //   });
+  // }
 
 
 
@@ -27,15 +27,7 @@ class App extends Component () {
     return (
       <div className="App">
 
-        <div>
-          <Bar
-            show={this.state.isVisible}
-            onShow={this.showBar}
-            onHide={this.hideBar}
-            text={"see more"}>
-
-          </Bar>
-          </div>
+       <h1>This is my app</h1>
         
       </div>
     );
