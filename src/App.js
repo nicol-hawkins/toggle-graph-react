@@ -9,6 +9,17 @@ class App extends Component {
     isVisible: false
   }
 
+  componentDidMount() {
+    fetch('./data.json')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          data: data
+        })
+        console.log('got the data!', data)
+      })
+  }
+
   // showBar = () => {
   //   this.setSate({
   //     isVisible: true
