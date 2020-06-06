@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 import CountryList from './components/CountryList/CountryList.js';
+import TitleBar from './components/TitleBar/TitleBar';
+import SelectYear from './components/SelectYear/SelectYear';
 
 
 
@@ -9,7 +11,7 @@ import CountryList from './components/CountryList/CountryList.js';
 class App extends Component {
   state = {
     isVisible: false,
-    year: '2016',
+    year: "2016",
     data: []
   }
 
@@ -25,11 +27,14 @@ class App extends Component {
       })
   }
 
-  onUpdateYear = (ev) => {
+  onUpdateYear = (ev, data) => {
     let year = ev.target.value;
     this.setState({
-      year: year
+      year: year,
+      data: data[this.state.year]
     });
+    
+    console.log('Data for :', year, data)
 
   }
 
@@ -56,8 +61,19 @@ class App extends Component {
   render(){
     return (
       <div className="App">
+        <div className="TitleBar">
+          <TitleBar
+            onChange={this.onUpdateYear}
+            currentYear={this.state.year}
+            year={this.state.year}>
+              <SelectYear
+                onChange={this.onUpdateYear}
+                currentYear={this.state.year}
+                value={this.state.year}>
+              </SelectYear>
 
-       <h1>This is my app</h1>
+          </TitleBar>
+        </div>
       
 
 
