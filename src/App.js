@@ -9,7 +9,8 @@ import CountryList from './components/CountryList/CountryList.js';
 class App extends Component {
   state = {
     isVisible: false,
-    year: '2016'
+    year: '2016',
+    data: []
   }
 
   componentDidMount() {
@@ -61,17 +62,10 @@ class App extends Component {
 
 
      <div className="MainContainer">
-      <div className="Country-Checkbox">
-        {this.state.data[this.state.year] ?
-          this.state.data[this.state.year].map((info, index)) (
-            <CountryButtons
-              onClick={() => this.onChooseCountry(info, index)}
-              text={info.Country}>
-                {info.Country}
-            </CountryButtons>
-          ): "NO DATA"
-        }
-      </div>
+      <CountryList
+        data={this.state.data}
+        year={this.state.year}
+        onToggleCountry={this.toggleCountry} />
       </div>
       </div>
     

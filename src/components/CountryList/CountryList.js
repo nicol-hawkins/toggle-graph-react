@@ -9,7 +9,7 @@ class CountryList extends Component {
     return (
     
       <div className="CountryCheckbox">
-        {/* {this.props.data[this.props.year] ?
+        {this.props.data[this.props.year] ?
           this.props.data[this.props.year].map((info, index) => (
             <CountryButton
               onToggleCountry={() => this.props.onToggleCountry(info, index)}
@@ -20,9 +20,7 @@ class CountryList extends Component {
                 {info.Country}
             </CountryButton>
           )) : "NO DATA"
-        } */}
-
-        <CountryButton/>
+        }
  
       </div>
 
