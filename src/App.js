@@ -3,9 +3,6 @@ import './App.css';
 
 import CountryList from './components/CountryList/CountryList.js';
 import TitleBar from './components/TitleBar/TitleBar';
-import SelectYear from './components/SelectYear/SelectYear';
-
-
 
 
 class App extends Component {
@@ -20,22 +17,21 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          data: data
+          data: data[this.state.year]
         })
-        console.log('got the data!', data[this.state.year])
-       console.log(data[this.state.year]["Country"])
+        console.log('got the data!', this.state.data)
       })
   }
 
   onUpdateYear = (ev, data) => {
     let year = ev.target.value;
     this.setState({
-      year: year,
-      data: data[this.state.year]
+      year: this.state.year,
+            
     });
     
-    console.log('Data for :', year, data)
-
+    console.log('Data for :', year)
+    console.log(this.state.data)
   }
 
   //try messing with filter 
@@ -66,12 +62,6 @@ class App extends Component {
             onChange={this.onUpdateYear}
             currentYear={this.state.year}
             year={this.state.year}>
-              {/* <SelectYear
-                onChange={this.onUpdateYear}
-                currentYear={this.state.year}
-                value={this.state.year}>
-              </SelectYear> */}
-
           </TitleBar>
         </div>
       
