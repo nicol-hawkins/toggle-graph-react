@@ -20,7 +20,7 @@ class App extends Component {
           data: data
         })
         console.log('got the data!', data[this.state.year])
-       
+       console.log(data[this.state.year]["Country"])
       })
   }
 
@@ -57,8 +57,26 @@ class App extends Component {
       <div className="App">
 
        <h1>This is my app</h1>
-      <CountryList></CountryList>
+      
+
+
+     <div className="MainContainer">
+      <div className="Country-Checkbox">
+        {this.state.data[this.state.year] ?
+          this.state.data[this.state.year].map((info, index)) (
+            <CountryButtons
+              onClick={() => this.onChooseCountry(info, index)}
+              text={info.Country}>
+                {info.Country}
+            </CountryButtons>
+          ): "NO DATA"
+        }
       </div>
+      </div>
+      </div>
+    
+
+
     );
   }
 }
