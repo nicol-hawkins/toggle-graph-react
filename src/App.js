@@ -7,7 +7,7 @@ import TitleBar from './components/TitleBar/TitleBar';
 class App extends Component {
   state = {
     isVisible: false,
-    year: 2016,
+    year: "2016",
     data: []
   }
 
@@ -19,16 +19,19 @@ class App extends Component {
           data: data[this.state.year]
         })
         console.log('got the data!', this.state.data)
+        console.log('Data for :', this.state.year)
       })
   }
 
   onUpdateYear = (ev, data) => {
     let year = ev.target.value;
     this.setState({
-      year: this.state.year,            
-    });
+      year: year,            
+    }, () => {
+      console.log(this.state.year)
+    })
     
-    console.log('Data for :', year)
+    console.log('Data for :', this.state.year)
     console.log(this.state.data)
   }
 
@@ -73,8 +76,6 @@ class App extends Component {
       </div>
       </div>
     
-
-
     );
   }
 }
