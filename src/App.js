@@ -4,11 +4,10 @@ import './App.css';
 import CountryList from './components/CountryList/CountryList.js';
 import TitleBar from './components/TitleBar/TitleBar';
 
-
 class App extends Component {
   state = {
     isVisible: false,
-    year: "2016",
+    year: 2016,
     data: []
   }
 
@@ -26,8 +25,7 @@ class App extends Component {
   onUpdateYear = (ev, data) => {
     let year = ev.target.value;
     this.setState({
-      year: this.state.year,
-            
+      year: this.state.year,            
     });
     
     console.log('Data for :', year)
