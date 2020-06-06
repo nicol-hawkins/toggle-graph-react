@@ -18,22 +18,20 @@ class App extends Component {
         this.setState({
           data: data[this.state.year]
         })
-        console.log('got the data!', this.state.data)
-        console.log('Data for :', this.state.year)
+        console.log('got the data!', this.state.year, this.state.data)
       })
   }
 
   onUpdateYear = (ev, data) => {
     let year = ev.target.value;
     this.setState({
-      year: year,            
+      year: year       
     }, () => {
-      console.log(this.state.year)
+      console.log('Current Year: ', this.state.year)
+     
     })
-    
-    console.log('Data for :', this.state.year)
-    console.log(this.state.data)
-  }
+    this.componentDidMount()
+  };
 
   //try messing with filter 
   //get one entry from the list and use js function in the console.
