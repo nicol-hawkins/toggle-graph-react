@@ -66,11 +66,11 @@ class App extends Component {
             onChange={this.onUpdateYear}
             currentYear={this.state.year}
             year={this.state.year}>
-              <SelectYear
+              {/* <SelectYear
                 onChange={this.onUpdateYear}
                 currentYear={this.state.year}
                 value={this.state.year}>
-              </SelectYear>
+              </SelectYear> */}
 
           </TitleBar>
         </div>
