@@ -8,8 +8,10 @@ class App extends Component {
   state = {
     isVisible: false,
     year: "2016",
-    data: []
+    data: [],
+    chosenCountries: []
   }
+
 
   componentDidMount() {
     fetch('./data.json')
@@ -26,11 +28,54 @@ class App extends Component {
     let year = ev.target.value;
     this.setState({
       year: year       
-    }, () => {
-      console.log('Current Year: ', this.state.year)
-     
-    })
+    }, () => {console.log('Current Year: ', this.state.year)})
     this.componentDidMount()
+  };
+
+//   toggleCountry = (indexOfCountry) => {
+//     const chosenCountries = this.state.chosenCountries.slice(); // duplicate chosenCountries array
+
+//     // Check if the chosenCountries array is listing this country as chosen
+//     if (chosenCountries.includes(indexOfCountry)) {
+//         // Presently chosen, remove from array
+//         // (This is the way you remove a particular value from an array in
+//         // JavaScript, sadly there is no "remove" method.)
+//         chosenCountries.splice(chosenCountries.indexOf(indexOfCountry), 1);
+
+//     } else {
+//         // Not presently chosen, add to array
+//         chosenCountries.push(chosenCountries);
+//     }
+
+//     // Finally, set the state with the new chosenCountries
+//     this.setState({
+//         chosenCountries: chosenCountries,
+//         isVisible: !this.state.isVisible
+//     });
+//     console.log('Array Chosen Countries: ', this.state.chosenCountries)
+//     console.log('Index of Country: ',  indexOfCountry)
+    
+//     // Object.entries(this.state.data).map(([year, info]) => {
+//     //   console.log(year, info)
+//     // }
+//     // )
+// }
+
+ toggleCountry = (data, index) => {   
+    const chosenCountries = this.state.chosenCountries  
+    const chosenCountry = data.Country;
+    chosenCountries.push(chosenCountry);
+
+    console.log('Current Chosen: ', chosenCountry)
+    console.log('List of Chosen: ', chosenCountries)
+    
+    this.setState({
+      isVisible: !this.state.isVisible,
+      data: this.state.data,
+      chosenCountries: this.state.chosenCountries
+
+    });
+
   };
 
   //try messing with filter 
