@@ -64,13 +64,11 @@ class App extends Component {
 
  toggleCountry = (data, info) => {   
     const chosenCountries = this.state.chosenCountries  
-    const chosenCountry = info.Country;
+    const chosenCountry = data.Country;
     chosenCountries.push(chosenCountry);
 
     console.log('Country Toggled: ', chosenCountry)
-    console.log('List of Chosen: ', chosenCountries)
-    console.log(info.Percentage)
-    
+    console.log('Chosen Countries: ', chosenCountries)
     
     
     this.setState({
@@ -129,7 +127,8 @@ class App extends Component {
                   className="bar--show bar"
                   info={info}
                   data={this.state.data}
-                  year={this.state.year}>
+                  year={this.state.year}
+                  chosenCountries={this.state.chosenCountries}>
                 </BarChart>
               )) : "NO DATA"  
             )

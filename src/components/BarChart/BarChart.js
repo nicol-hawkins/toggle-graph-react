@@ -10,7 +10,7 @@ class BarChart extends Component {
       {/* <h1>Toggled on</h1> */}
       {
          
-          this.props.data.map((info, index) => (
+          this.props.chosenCountries.map((info, index) => (
             <div 
               className={className}
               style={{height: this.props.info.Percentage - 10 + "%" }}>
