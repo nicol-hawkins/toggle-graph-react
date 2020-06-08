@@ -6,15 +6,15 @@ import BarChart from '../BarChart/BarChart';
 
 class CountryList extends Component {
 
-  toggleBar = () => {
-    if(this.props.isVisible) {
-      return `<div className='testBar' style={barStyle}>
-      <h1>HELLLO WORLD</H1>
-    </div>`
-    } else {
-      return null
-    }
-  }
+  // toggleBar = () => {
+  //   if(this.props.isVisible) {
+  //     return `<div className='testBar' style={barStyle}>
+  //     <h1>HELLLO WORLD</H1>
+  //   </div>`
+  //   } else {
+  //     return null
+  //   }
+  // }
 
   onButtonClick = () => {
     if(this.props.isVisible) {
@@ -24,7 +24,6 @@ class CountryList extends Component {
     }
   }
   render() {
-
     let barStyle = {
       visibility: 'hidden',
       maxHeight: '0px'
@@ -46,7 +45,7 @@ class CountryList extends Component {
               gotClicked={this.onButtonClick}
               text={info.Country}
               key={index}
-              onToggle={this.toggleBar()}
+              // onToggle={this.toggleBar()}
               >
                 {info.Country}
             </CountryButton>

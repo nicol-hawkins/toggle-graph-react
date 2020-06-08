@@ -95,6 +95,14 @@ class App extends Component {
     });
   }
 
+  onButtonClick = () => {
+    if(this.props.isVisible) {
+      this.props.onHide();
+    } else {
+      this.props.onShow();
+    }
+  }
+
 
   //try messing with filter 
   //get one entry from the list and use js function in the console.
@@ -132,7 +140,9 @@ class App extends Component {
         onHide={this.hideBar}
         data={this.state.data}
       >
-        {
+
+        
+        {/* {
           this.state.data.map((info, index) => (
             <CountryButton
               // onToggleCountry={() => this.props.onToggleCountry(info, index)}
@@ -143,7 +153,7 @@ class App extends Component {
                 {info.Country}
             </CountryButton>
           ))
-        }
+        } */}
       </CountryList>
 
       <div className="BarChart" id="results">
