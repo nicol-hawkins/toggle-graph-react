@@ -3,6 +3,7 @@ import './App.css';
 
 import CountryList from './components/CountryList/CountryList.js';
 import TitleBar from './components/TitleBar/TitleBar';
+import BarChart from './components/BarChart/BarChart';
 
 class App extends Component {
   state = {
@@ -61,20 +62,22 @@ class App extends Component {
 //     // )
 // }
 
- toggleCountry = (data, index) => {   
+ toggleCountry = (data, info) => {   
     const chosenCountries = this.state.chosenCountries  
-    const chosenCountry = data.Country;
+    const chosenCountry = info.Country;
     chosenCountries.push(chosenCountry);
 
-    console.log('Current Chosen: ', chosenCountry)
+    console.log('Country Toggled: ', chosenCountry)
     console.log('List of Chosen: ', chosenCountries)
+    console.log(info.Percentage)
+    
+    
     
     this.setState({
       isVisible: !this.state.isVisible,
       data: this.state.data,
       chosenCountries: this.state.chosenCountries
-
-    });
+    }, () => {console.log(chosenCountry,': ', this.state.isVisible)});
 
   };
 
@@ -116,6 +119,24 @@ class App extends Component {
         data={this.state.data}
         year={this.state.year}
         onToggleCountry={this.toggleCountry} />
+
+      <div className="BarChart" id="results">
+      {
+            this.state.isVisible && (
+              this.state.chosenCountries ?
+              this.state.data.map((info, index) => (
+                <BarChart
+                  className="bar--show bar"
+                  info={info}
+                  data={this.state.data}
+                  year={this.state.year}>
+                </BarChart>
+              )) : "NO DATA"  
+            )
+          }
+
+      </div>
+
       </div>
       </div>
     
