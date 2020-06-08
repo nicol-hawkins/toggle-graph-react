@@ -4,6 +4,7 @@ import './App.css';
 import CountryList from './components/CountryList/CountryList.js';
 import TitleBar from './components/TitleBar/TitleBar';
 import BarChart from './components/BarChart/BarChart';
+import CountryButton from './components/CountryButton/CountryButton'
 
 class App extends Component {
   state = {
@@ -62,22 +63,22 @@ class App extends Component {
 //     // )
 // }
 
- toggleCountry = (data, info, index) => {   
-    const chosenCountries = this.state.chosenCountries  
-    const chosenCountry = data.Country;
-    chosenCountries.push(chosenCountry);
+//  toggleCountry = (data, info, index) => {   
+//     const chosenCountries = this.state.chosenCountries  
+//     const chosenCountry = data.Country;
+//     chosenCountries.push(chosenCountry);
 
-    console.log('Country Toggled: ', chosenCountry)
-    console.log('Chosen Countries: ', chosenCountries)
+//     console.log('Country Toggled: ', chosenCountry)
+//     console.log('Chosen Countries: ', chosenCountries)
     
     
-    this.setState({
-      isVisible: !this.state.isVisible,
-      // data: this.state.data,
-      chosenCountries: this.state.chosenCountries
-    }, () => {console.log(chosenCountry,': ', this.state.isVisible)});
+//     this.setState({
+//       isVisible: !this.state.isVisible,
+//       // data: this.state.data,
+//       chosenCountries: this.state.chosenCountries
+//     }, () => {console.log(chosenCountry,': ', this.state.isVisible)});
 
-  };
+//   };
 
 
   showBar = () => {
@@ -130,10 +131,23 @@ class App extends Component {
         onShow={this.showBar}
         onHide={this.hideBar}
         data={this.state.data}
-      />
+      >
+        {
+          this.state.data.map((info, index) => (
+            <CountryButton
+              // onToggleCountry={() => this.props.onToggleCountry(info, index)}
+              gotClicked={this.onButtonClick}
+              text={info.Country}
+              key={index}
+              >
+                {info.Country}
+            </CountryButton>
+          ))
+        }
+      </CountryList>
 
       <div className="BarChart" id="results">
-      {
+      {/* {
             this.state.isVisible && (
               this.state.chosenCountries ?
               this.state.data.map((info, index) => (
@@ -146,7 +160,7 @@ class App extends Component {
                 </BarChart>
               )) : "NO DATA"  
             )
-          }
+          } */}
 
       </div>
 

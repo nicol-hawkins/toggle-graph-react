@@ -26,6 +26,13 @@
   
   }
 
+  .testBar {
+    width: 10px;
+    height: 10px;
+    color: black
+  }
+
+
 
   @media screen and (max-width: 1300px) {
     .Country-Button {

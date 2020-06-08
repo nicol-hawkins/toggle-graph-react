@@ -49,6 +49,12 @@ h3 {
     padding-bottom: 11vh;
   }
 
+  .testBar {
+    width: 10px;
+    height: 10px;
+    color: black
+  }
+
 
   @media screen and (max-width: 1500px) {
     .BarChart-Bar {

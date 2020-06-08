@@ -3,24 +3,27 @@ import './CountryButton.css';
 
 class CountryButton extends Component {
 
-  onButtonClick = () => {
-    if(this.props.isVisible) {
-      this.props.onHide();
-    } else {
-      this.props.onShow();
-    }
-  }
+  // onButtonClick = () => {
+  //   if(this.props.isVisible) {
+  //     this.props.onHide();
+  //   } else {
+  //     this.props.onShow();
+  //   }
+  // }
   render() {
     let className = 'Country-Button';
+    const style = {};
+
 
    
     return (
     
         <div 
           className={className} 
-          onClick={this.onButtonClick}
+          onClick={this.props.gotClicked}
+          onChange={this.props.onChange}
           >
-            {this.props.children}
+            {this.props.children || this.props.onToggle}
         </div>
     
         );
