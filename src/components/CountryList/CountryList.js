@@ -52,7 +52,7 @@ class CountryList extends Component {
           ))
         }
 
-        <div className='testBar' style={barStyle}>
+        <div style={barStyle}>
           {this.props.children}
         </div>
       </div>

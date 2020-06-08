@@ -142,6 +142,21 @@ class App extends Component {
       >
 
         
+
+        {
+          this.state.isVisible ?
+          this.state.data.map((info, index) => (
+            <BarChart
+            className="bar--show bar"
+            info={info}
+            data={this.state.data}
+            year={this.state.year}
+            chosenCountries={this.state.chosenCountries}
+            >
+          </BarChart>
+          )) : null
+        }
+        
         {/* {
           this.state.data.map((info, index) => (
             <CountryButton
