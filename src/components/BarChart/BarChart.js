@@ -7,10 +7,10 @@ class BarChart extends Component {
 
   return (
     <div>
-      <h1>Toggled on</h1>
-      {/* {
-        this.props.data[this.props.year] ? 
-          this.props.data[this.props.year].map((info, index) => (
+      {/* <h1>Toggled on</h1> */}
+      {
+         
+          this.props.data.map((info, index) => (
             <div 
               className={className}
               style={{height: this.props.info.Percentage - 10 + "%" }}>
@@ -18,9 +18,9 @@ class BarChart extends Component {
               <h4>{this.props.info.Percentage} %</h4>
               {this.props.children}
             </div>
-          )) : 'not data'
+          )) 
         
-      } */}
+      }
     </div>
 
       
