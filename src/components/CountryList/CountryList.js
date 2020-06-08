@@ -4,6 +4,13 @@ import './CountryList.css';
 import CountryButton from '../CountryButton/CountryButton';
 
 class CountryList extends Component {
+  onButtonClick = () => {
+    if(this.props.isVisible) {
+      this.props.onHide();
+    } else {
+      this.props.onShow();
+    }
+  }
   render() {
     
     return (    
@@ -11,7 +18,8 @@ class CountryList extends Component {
         {
           this.props.data.map((info, index) => (
             <CountryButton
-              onToggleCountry={() => this.props.onToggleCountry(info, index)}
+              // onToggleCountry={() => this.props.onToggleCountry(info, index)}
+              onShow={this.onButtonClick}
               text={info.Country}
               key={index}
               >

@@ -2,14 +2,36 @@ import React, { Component } from 'react';
 import './BarChart.css';
 
 class BarChart extends Component {
+
+  onButtonClick = () => {
+    if(this.props.isVisible) {
+      this.props.onHide();
+    } else {
+      this.props.onShow();
+    }
+  }
+
+
+
+
   render() {
     let className = 'BarChart-Bar';
 
+    let barStyle = {
+      visibility: 'hidden',
+      maxHeight: '0px'
+    };
+
+    if (this.props.show) {
+      barStyle = {
+        visibility: 'visible'
+      }
+    };
+
   return (
     <div>
-      {/* <h1>Toggled on</h1> */}
-      {
-         
+
+      {       
           this.props.chosenCountries.map((info, index) => (
             <div 
               className={className}

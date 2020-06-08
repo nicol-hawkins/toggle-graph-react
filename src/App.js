@@ -62,7 +62,7 @@ class App extends Component {
 //     // )
 // }
 
- toggleCountry = (data, info) => {   
+ toggleCountry = (data, info, index) => {   
     const chosenCountries = this.state.chosenCountries  
     const chosenCountry = data.Country;
     chosenCountries.push(chosenCountry);
@@ -73,11 +73,27 @@ class App extends Component {
     
     this.setState({
       isVisible: !this.state.isVisible,
-      data: this.state.data,
+      // data: this.state.data,
       chosenCountries: this.state.chosenCountries
     }, () => {console.log(chosenCountry,': ', this.state.isVisible)});
 
   };
+
+
+  showBar = () => {
+    console.log('Show Bar')
+    this.setState({
+      isVisible: true
+    });
+  }
+
+  hideBar = () => {
+    console.log('Hide Bar')
+    this.setState({
+      isVisible: false
+    });
+  }
+
 
   //try messing with filter 
   //get one entry from the list and use js function in the console.
@@ -85,17 +101,7 @@ class App extends Component {
   //data["2010"].filter(name => name.Country === "Bolivia")[0]
 
 
-  // showBar = () => {
-  //   this.setSate({
-  //     isVisible: true
-  //   });
-  // }
 
-  // hideBar = () => {
-  //   this.setState({
-  //     isVisible: false
-  //   });
-  // }
 
 
 
@@ -113,10 +119,18 @@ class App extends Component {
 
 
      <div className="MainContainer">
-      <CountryList
+      {/* <CountryList
         data={this.state.data}
         year={this.state.year}
-        onToggleCountry={this.toggleCountry} />
+        onToggleCountry={this.toggleCountry}
+         /> */}
+
+      <CountryList
+        isVisible={this.state.isVisible}
+        onShow={this.showBar}
+        onHide={this.hideBar}
+        data={this.state.data}
+      />
 
       <div className="BarChart" id="results">
       {
