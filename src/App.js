@@ -34,108 +34,108 @@ class App extends Component {
     this.componentDidMount()
   };
 
+  showBar = (data, info) => {
+    console.log('Show Bar')
+    const chosenCountries = this.state.chosenCountries
+    const chosenCountry = data.Country;
+    chosenCountries.push(chosenCountry);
 
-    showBar = (data, info, index) => {
-      console.log('Show Bar')
-      const chosenCountries = this.state.chosenCountries
-      const chosenCountry = data.Country;
-      chosenCountries.push(chosenCountry);
+    console.log('Country Toggled: ', chosenCountry)
+    console.log('Chosen Countries: ', chosenCountries)
 
-      console.log('Country Toggled: ', chosenCountry)
-      console.log('Chosen Countries: ', chosenCountries)
-      console.log(data.Country)
+    this.testData()
 
-      this.testData()
-      this.setState({
-        isVisible: !this.state.isVisible,
-        chosenCountries: this.state.chosenCountries
-      }, () => console.log(chosenCountry, ': ', this.state.isVisible));
+    this.setState({
+      isVisible: !this.state.isVisible,
+      // chosenCountries: this.state.chosenCountries
+    });
+  }
+
+  testData = () => {
+    this.state.data.map((info) => (
+      console.log(info.Country)
+    ))
+  
+  }
+
+
+
+  hideBar = () => {
+    console.log('Hide Bar')
+    this.setState({
+      isVisible: !this.state.isVisible
+    });
+  }
+
+
+  onButtonClick = (data) => {
+    if(this.props.isVisible) {
+      this.props.onHide(data);
+    } else {
+      this.props.onShow(data);
     }
-
-    testData = () => {
-      this.state.data.map((info) => (
-        console.log(info.Country)
-      ))
-    }
+  }
 
 
-
-    hideBar = () => {
-      console.log('Hide Bar')
-      this.setState({
-        isVisible: !this.state.isVisible
-      });
-    }
-
-
-    onButtonClick = (data) => {
-      if(this.props.isVisible) {
-        this.props.onHide(data);
-      } else {
-        this.props.onShow(data);
-      }
-    }
-
-
-    render(){
-      return (
-        <div className="App">
-          <div className="TitleBar">
-            <TitleBar
-              onChange={this.onUpdateYear}
-              currentYear={this.state.year}
-              year={this.state.year}>
-            </TitleBar>
-          </div>
-      
-
-
-          <div className="MainContainer">
-            {/* <CountryList
-              data={this.state.data}
-              year={this.state.year}
-              onToggleCountry={this.toggleCountry}
-              /> */}
-
-            <CountryList
-              isVisible={this.state.isVisible}
-              onShow={this.showBar}
-              onHide={this.hideBar}
-              data={this.state.data}>
-
-              <div className="BarChart" id="results">
-                {
-                  this.state.isVisible && this.state.chosenCountries ?
-                  this.state.data.map((info, index) => (
-                    <BarChart
-                      className="bar--show bar"
-                      info={info}
-                      data={this.state.data}
-                      year={this.state.year}
-                      key={index}
-                      chosenCountries={this.state.chosenCountries}
-                    >
-                  </BarChart>
-                  )) : null
-                }
-              </div>
-        
-              {/* {
-                this.state.data.map((info, index) => (
-                  <CountryButton
-                    // onToggleCountry={() => this.props.onToggleCountry(info, index)}
-                    gotClicked={this.onButtonClick}
-                    text={info.Country}
-                    key={index}
-                    >
-                      {info.Country}
-                  </CountryButton>
-                ))
-              } */}
-              </CountryList>
-
+  render(){
+    return (
+      <div className="App">
+        <div className="TitleBar">
+          <TitleBar
+            onChange={this.onUpdateYear}
+            currentYear={this.state.year}
+            year={this.state.year}>
+          </TitleBar>
         </div>
+    
+
+
+        <div className="MainContainer">
+          {/* <CountryList
+            data={this.state.data}
+            year={this.state.year}
+            onToggleCountry={this.toggleCountry}
+            /> */}
+
+          <CountryList
+            isVisible={this.state.isVisible}
+            onShow={this.showBar}
+            onHide={this.hideBar}
+            data={this.state.data}>
+
+            <div className="BarChart" id="results">
+              {
+                this.state.isVisible ?
+                this.state.data.map((info, index) => (
+                  <BarChart
+                    className="bar--show bar"
+                    info={info}
+                    data={this.state.data}
+                    year={this.state.year}
+                    key={index}
+                    chosenCountries={this.state.chosenCountries}
+                  >
+                </BarChart>
+                )) : null
+              }
+            </div>
+      
+            {/* {
+              this.state.data.map((info, index) => (
+                <CountryButton
+                  // onToggleCountry={() => this.props.onToggleCountry(info, index)}
+                  gotClicked={this.onButtonClick}
+                  text={info.Country}
+                  key={index}
+                  >
+                    {info.Country}
+                </CountryButton>
+              ))
+            } */}
+            </CountryList>
+
       </div>
+    </div>
     
     );
   }
