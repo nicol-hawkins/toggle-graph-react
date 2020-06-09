@@ -81,17 +81,25 @@ class App extends Component {
 //   };
 
 
-  showBar = () => {
+  showBar = (data, info, index) => {
     console.log('Show Bar')
+    const chosenCountries = this.state.chosenCountries
+    const chosenCountry = data.Country;
+    chosenCountries.push(chosenCountry);
+
+    console.log('Country Toggled: ', chosenCountry)
+    console.log('Chosen Countries: ', chosenCountries)
+
     this.setState({
-      isVisible: true
-    });
+      isVisible: !this.state.isVisible,
+      chosenCountries: this.state.chosenCountries
+    }, () => console.log(chosenCountry, ': ', this.state.isVisible));
   }
 
   hideBar = () => {
     console.log('Hide Bar')
     this.setState({
-      isVisible: false
+      isVisible: !this.state.isVisible
     });
   }
 
@@ -141,21 +149,24 @@ class App extends Component {
         data={this.state.data}
       >
 
-        
+        <div className="BarChart" id="results">
 
         {
-          this.state.isVisible ?
+          this.state.isVisible && this.state.chosenCountries ?
           this.state.data.map((info, index) => (
             <BarChart
             className="bar--show bar"
             info={info}
             data={this.state.data}
             year={this.state.year}
+            key={index}
             chosenCountries={this.state.chosenCountries}
             >
           </BarChart>
           )) : null
         }
+
+        </div>
         
         {/* {
           this.state.data.map((info, index) => (

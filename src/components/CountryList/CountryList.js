@@ -4,6 +4,7 @@ import './CountryList.css';
 import CountryButton from '../CountryButton/CountryButton';
 import BarChart from '../BarChart/BarChart';
 
+
 class CountryList extends Component {
 
   // toggleBar = () => {
@@ -16,11 +17,11 @@ class CountryList extends Component {
   //   }
   // }
 
-  onButtonClick = () => {
+  onButtonClick = (data) => {
     if(this.props.isVisible) {
-      this.props.onHide();
+      this.props.onHide(data);
     } else {
-      this.props.onShow();
+      this.props.onShow(data);
     }
   }
   render() {
