@@ -35,13 +35,13 @@ class App extends Component {
   };
 
   showBar = (data, info) => {
-    console.log('Show Bar')
-    const chosenCountries = this.state.chosenCountries
-    const chosenCountry = data.Country;
-    chosenCountries.push(chosenCountry);
+    // console.log('Show Bar')
+    // const chosenCountries = this.state.chosenCountries
+    // const chosenCountry = data.Country;
+    // chosenCountries.push(chosenCountry);
 
-    console.log('Country Toggled: ', chosenCountry)
-    console.log('Chosen Countries: ', chosenCountries)
+    // console.log('Country Toggled: ', chosenCountry)
+    // console.log('Chosen Countries: ', chosenCountries)
 
     this.testData()
 
