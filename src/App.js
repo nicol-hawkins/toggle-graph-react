@@ -11,7 +11,8 @@ class App extends Component {
     isVisible: false,
     year: "2016",
     data: [],
-    chosenCountries: []
+    chosenCountries: [],
+    availableCountries: []
   }
 
   componentDidMount() {
@@ -19,7 +20,8 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          data: data[this.state.year]
+          data: data[this.state.year],
+          availableCountries: data[this.state.year]
         })
         console.log('got the data!', this.state.year, this.state.data)
       })
@@ -47,7 +49,7 @@ class App extends Component {
 
      //duplicate the two arrays
      const chosenCountries = this.state.chosenCountries.slice();
-     const availableCountries = this.state.data.slice();
+     const availableCountries = this.state.availableCountries.slice();
  
      //retrieve country of choice
      const chosenCountry = availableCountries[index];
@@ -60,6 +62,8 @@ class App extends Component {
 
     this.setState({
       isVisible: !this.state.isVisible,
+      availableCountries: this.state.availableCountries,
+      chosenCountries: this.state.chosenCountries
       // chosenCountries: this.state.chosenCountries
     });
   }
