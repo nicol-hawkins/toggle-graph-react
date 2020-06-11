@@ -14,7 +14,6 @@ class App extends Component {
     chosenCountries: []
   }
 
-
   componentDidMount() {
     fetch('./data.json')
       .then(response => response.json())
@@ -34,7 +33,7 @@ class App extends Component {
     this.componentDidMount()
   };
 
-  showBar = (data, info) => {
+  showBar = (data, info, index) => {
     // console.log('Show Bar')
     // const chosenCountries = this.state.chosenCountries
     // const chosenCountry = data.Country;
@@ -42,8 +41,22 @@ class App extends Component {
 
     // console.log('Country Toggled: ', chosenCountry)
     // console.log('Chosen Countries: ', chosenCountries)
+    // console.log(data.Country)
 
-    this.testData()
+    // this.testData()
+
+     //duplicate the two arrays
+     const chosenCountries = this.state.chosenCountries.slice();
+     const availableCountries = this.state.data.slice();
+ 
+     //retrieve country of choice
+     const chosenCountry = availableCountries[index];
+ 
+     //add to chosen list
+     chosenCountries.push(chosenCountry);
+     availableCountries.splice(index, 1);
+
+     console.log(chosenCountries)
 
     this.setState({
       isVisible: !this.state.isVisible,
