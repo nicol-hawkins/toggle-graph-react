@@ -5,14 +5,12 @@ class SelectYear extends Component {
  render() {
    let className = "YearChooser-select"
 
- 
-    return (
+   return (
       <div className="YearChooser">
         <div className="YearChooser-select">
           <select 
           className={className} 
-          onChange={this.props.onChange} 
-          currentYear={this.props.year}>
+          onChange={this.props.onChange}>
             <option value="2016">2016</option>
             <option value="2015">2015</option>
             <option value="2014">2014</option>
@@ -21,7 +19,7 @@ class SelectYear extends Component {
             <option value="2011">2011</option>
             <option value="2010">2010</option>
           </select>
-        {this.props.children}
+        {/* {this.props.children} */}
         </div>
       </div>
     );
