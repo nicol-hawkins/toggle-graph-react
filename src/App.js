@@ -11,8 +11,7 @@ class App extends Component {
     isVisible: false,
     year: "2016",
     data: [],
-    chosenCountries: [],
-    availableCountries: []
+    chosenCountries: []
   }
 
   componentDidMount() {
@@ -20,8 +19,7 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          data: data[this.state.year],
-          availableCountries: data[this.state.year]
+          data: data[this.state.year]
         })
         console.log('got the data!', this.state.year, this.state.data)
       })
@@ -44,35 +42,19 @@ class App extends Component {
     // console.log('Country Toggled: ', chosenCountry)
     // console.log('Chosen Countries: ', chosenCountries)
     // console.log(data.Country)
-
-    // this.testData()
-
-     //duplicate the two arrays
-     const chosenCountries = this.state.chosenCountries.slice();
-     const availableCountries = this.state.availableCountries.slice();
- 
-     //retrieve country of choice
-     const chosenCountry = availableCountries[index];
- 
-     //add to chosen list
-     chosenCountries.push(chosenCountry);
-     availableCountries.splice(index, 1);
-
-     console.log(chosenCountries)
+    this.chooseCountry(info)
+    console.log(data)
 
     this.setState({
       isVisible: !this.state.isVisible,
-      availableCountries: this.state.availableCountries,
       chosenCountries: this.state.chosenCountries
-      // chosenCountries: this.state.chosenCountries
     });
   }
 
-  testData = () => {
+  chooseCountry = (data, index, info) => {
     this.state.data.map((info) => (
-      console.log(info.Country)
-    ))
-  
+      console.log(info.Country)      
+    ))  
   }
 
   hideBar = () => {
@@ -82,22 +64,12 @@ class App extends Component {
     });
   }
 
-  onButtonClick = (data) => {
-    if(this.props.isVisible) {
-      this.props.onHide(data);
-    } else {
-      this.props.onShow(data);
-    }
-  }
-
-
   render(){
     return (
       <div className="App">
         <div className="TitleBar">
           <TitleBar
             onChange={this.onUpdateYear}
-            currentYear={this.state.year}
             year={this.state.year}>
           </TitleBar>
         </div>

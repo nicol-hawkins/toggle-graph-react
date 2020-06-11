@@ -13,7 +13,6 @@ class TitleBar extends Component {
                 onChange={this.props.onChange}
                 value={this.props.year}>
             </SelectYear>
-            {/* {this.props.children} */}
           </h1>
         </div>        
     );
