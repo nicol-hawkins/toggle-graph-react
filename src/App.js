@@ -4,7 +4,7 @@ import './App.css';
 import CountryList from './components/CountryList/CountryList.js';
 import TitleBar from './components/TitleBar/TitleBar';
 import BarChart from './components/BarChart/BarChart';
-import CountryButton from './components/CountryButton/CountryButton'
+
 
 class App extends Component {
   state = {
@@ -75,15 +75,12 @@ class App extends Component {
   
   }
 
-
-
   hideBar = () => {
     console.log('Hide Bar')
     this.setState({
       isVisible: !this.state.isVisible
     });
   }
-
 
   onButtonClick = (data) => {
     if(this.props.isVisible) {
@@ -105,52 +102,30 @@ class App extends Component {
           </TitleBar>
         </div>
     
-
-
         <div className="MainContainer">
-          {/* <CountryList
-            data={this.state.data}
-            year={this.state.year}
-            onToggleCountry={this.toggleCountry}
-            /> */}
-
           <CountryList
             isVisible={this.state.isVisible}
             onShow={this.showBar}
             onHide={this.hideBar}
             data={this.state.data}>
+          </CountryList>
 
-            <div className="BarChart" id="results">
-              {
-                this.state.isVisible ?
-                this.state.data.map((info, index) => (
-                  <BarChart
-                    className="bar--show bar"
-                    info={info}
-                    data={this.state.data}
-                    year={this.state.year}
-                    key={index}
-                    chosenCountries={this.state.chosenCountries}
-                  >
-                </BarChart>
-                )) : null
-              }
-            </div>
-      
-            {/* {
+          <div className="BarChart" id="results">
+            {
+              this.state.isVisible ?
               this.state.data.map((info, index) => (
-                <CountryButton
-                  // onToggleCountry={() => this.props.onToggleCountry(info, index)}
-                  gotClicked={this.onButtonClick}
-                  text={info.Country}
+                <BarChart
+                  className="bar--show bar"
+                  info={info}
+                  data={this.state.data}
+                  year={this.state.year}
                   key={index}
-                  >
-                    {info.Country}
-                </CountryButton>
-              ))
-            } */}
-            </CountryList>
-
+                  chosenCountries={this.state.chosenCountries}
+                >
+              </BarChart>
+              )) : null
+            }
+          </div>
       </div>
     </div>
     

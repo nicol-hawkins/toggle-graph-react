@@ -3,7 +3,7 @@ h1 {
     display:block;
     margin: 3px;
     font-family: 'Roboto', sans-serif;
-    font-size: 35pt;
+    font-size: 1.5em;
     color: white;
     -webkit-text-fill-color: var(--lgtpink);
     -webkit-text-stroke-width: 1.2px;

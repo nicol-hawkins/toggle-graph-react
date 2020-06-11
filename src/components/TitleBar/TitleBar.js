@@ -19,17 +19,10 @@ class TitleBar extends Component {
 
         <div className="test">
           <h1>Percentage of Forest Land in <br></br>South American Countries:  
-            {/* <span 
-              className="output"
-              currentYear={this.props.year}
-              onChange={this.props.onChange}> 
-                  {this.props.year}
-            </span>  */}
             <SelectYear
                 onChange={this.props.onChange}
                 currentYear={this.props.year}
                 value={this.props.year}>
-
             </SelectYear>
             {this.props.children}
           </h1>
