@@ -46,17 +46,31 @@ class App extends Component {
     // console.log('Index of Country: ', data)
     // console.log('Name of Country: ', )
 
+    
+
     this.setState({
-      isVisible: !this.state.isVisible,
-      chosenCountries: this.state.chosenCountries
+      isVisible: !this.state.isVisible
     });
   };
 
-  // chooseCountry = (data, index, info) => {
-  //   this.state.data.map((info) => (
-  //     console.log(info.Country) 
-           
-  //   ))  
+  // chooseCountry = (index) => {
+  //   //slicing/splice method
+  //   const chosenCountries = this.state.chosenCountries.slice();
+  //   const availableCountries = this.props.data.slice();
+
+  //   //retrieve country of choice
+  //   const chosenCountry = availableCountries[index];
+  //   console.log(chosenCountry)
+
+  //   //add to chosen list
+  //   chosenCountries.push(chosenCountry);
+  //   availableCountries.splice(index, 1);
+  //   console.log('Chosen Countries: ', chosenCountries)
+
+  //   this.setState({
+  //     chosenCountries: [...this.state.chosenCountries, chosenCountry]
+  //   })    
+  
   // };
 
   hideBar = () => {

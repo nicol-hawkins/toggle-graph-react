@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './CountryList.css';
 
 import CountryButton from '../CountryButton/CountryButton';
+import BarChart from '../BarChart/BarChart'
 
 
 class CountryList extends Component {
@@ -18,20 +19,15 @@ class CountryList extends Component {
       this.props.onShow(index);
     }
     console.log('index: ', index)
-    // const chosenCountries
-    this.props.data.map((index) => (   
-      console.log(index.Country)          
-    ))  
-    
+
     //simple approach, appends to list but contents undefined
     // const chosenCountries = this.state.chosenCountries;
     // const chosenCountry = index.Country;
     // chosenCountries.push(chosenCountry);
-
     // console.log('Chosen Countries: ', chosenCountries)
 
 
-    //slicing/splice method, logs chosen country but doesnt append to array
+    //slicing/splice method
     const chosenCountries = this.state.chosenCountries.slice();
     const availableCountries = this.props.data.slice();
 
@@ -46,9 +42,7 @@ class CountryList extends Component {
 
     this.setState({
       chosenCountries: [...this.state.chosenCountries, chosenCountry]
-    })
-
-    
+    })    
   };
 
   render() {
@@ -77,7 +71,25 @@ class CountryList extends Component {
             </CountryButton>
           ))
         }
+
+        
+           
+        {
+          this.props.isVisible ?
+          this.state.chosenCountries.map((info, index) => (
+            <BarChart
+              className="bar--show bar"
+              info={info}
+              data={this.state.data}
+              year={this.state.year}
+              key={index}
+              chosenCountries={this.state.chosenCountries}/>                
+          )) : null
+        }
+        
+      
       </div>
+      
 
     );
   }
