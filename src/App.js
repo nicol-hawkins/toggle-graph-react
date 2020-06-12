@@ -42,8 +42,9 @@ class App extends Component {
     // console.log('Country Toggled: ', chosenCountry)
     // console.log('Chosen Countries: ', chosenCountries)
     // console.log(data.Country)
-    this.chooseCountry(info)
-    console.log(data)
+    this.chooseCountry()
+    console.log('Index of Country: ', data)
+    console.log('Name of Country: ', )
 
     this.setState({
       isVisible: !this.state.isVisible,
@@ -53,7 +54,8 @@ class App extends Component {
 
   chooseCountry = (data, index, info) => {
     this.state.data.map((info) => (
-      console.log(info.Country)      
+      console.log(info.Country) 
+           
     ))  
   }
 
