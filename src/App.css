@@ -36,23 +36,6 @@
 
 }
 
-.CountryCheckbox {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 5px;
-  align-items: center;
-  font-family: 'Roboto', sans-serif;
-  margin-top: 0vh;
-  cursor: pointer;
-  font-size: 21px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  z-index: 1;
-    
-}
-
 .BarChart {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -66,16 +49,28 @@
 }
 
 
-@media screen and (max-width: 1300px) {
-  .CountryCheckbox {
-    margin-top: -67px;
-
-  } 
+@media screen and (max-width: 1200px) {
 
   .TitleBar {
-   height: 22.5vh;
+    height: 27vh;
   }
 
+}
+
+@media screen and (max-width: 1000px) {
+
+  .TitleBar {
+    height: 37vh;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+
+  .TitleBar {
+    height: 37vh;
+    font-size: 1.5em;
+  }
 
 }
 

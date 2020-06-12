@@ -6,7 +6,6 @@ class SelectYear extends Component {
    let className = "YearChooser-select"
 
    return (
-      <div className="YearChooser">
         <div className="YearChooser-select">
           <select 
             className={className} 
@@ -20,7 +19,6 @@ class SelectYear extends Component {
               <option value="2010">2010</option>
           </select>
         </div>
-      </div>
     );
   }
 }

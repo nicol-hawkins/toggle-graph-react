@@ -1,6 +1,6 @@
 
 h1 {
-    display:block;
+    display: block;
     margin: 3px;
     font-family: 'Roboto', sans-serif;
     font-size: 1.5em;
@@ -11,8 +11,3 @@ h1 {
     
   }
   
-  .output {
-    -webkit-text-fill-color: var(--darkgrn);
-    padding-left: 10px;
-      
-  }

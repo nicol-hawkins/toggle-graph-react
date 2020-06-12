@@ -7,7 +7,6 @@ import BarChart from './components/BarChart/BarChart';
 
 class App extends Component {
   state = {
-    isVisible: false,
     year: "2016",
     data: []
   };
@@ -46,7 +45,6 @@ class App extends Component {
             {              
               this.state.data.map((info, index) => (
                 <BarChart
-                  className="bar--show bar"
                   info={info}
                   data={this.state.data}
                   year={this.state.year}

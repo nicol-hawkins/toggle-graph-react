@@ -1,23 +1,33 @@
-.YearChooser {
+
+.YearChooser-select {
+  position: absolute;
+  display: inline-block;
+  color: white;
+  font-weight: bold;
+  background-color: transparent;
+  font-family: 'Roboto', sans-serif;
+  -webkit-text-fill-color: var(--darkgrn);
+  -webkit-text-stroke-width: 1.2px;
+  font-size: 35pt;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  outline: none;
+  margin-left: .25vw;
+    
+}
+
+@media screen and (max-width: 800px) {
+
+  .YearChooser-select {
     position: relative;
     display: inline-block;
-    bottom: -1px;
-  
   }
   
-.YearChooser-select {
-    color: white;
-    font-weight: bold;
-    background-color: var(--darkgrn);
-    font-family: 'Roboto', sans-serif;
-    -webkit-text-fill-color: var(--darkgrn);
-    -webkit-text-stroke-width: 1.2px;
-    padding: 5px;
-    font-size: 35pt;
-    border: none;
-    cursor: pointer;
-    width: 150px;
-    height: 6vh;
-    outline: none;
-    
+  .TitleBar {
+    height: 37vh;
+    font-size: 1.5em;
   }
+
+}
+
