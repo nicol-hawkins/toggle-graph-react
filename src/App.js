@@ -12,7 +12,7 @@ class App extends Component {
     year: "2016",
     data: [],
     chosenCountries: []
-  }
+  };
 
   componentDidMount() {
     fetch('./data.json')
@@ -20,10 +20,10 @@ class App extends Component {
       .then(data => {
         this.setState({
           data: data[this.state.year]
-        })
+        });
         console.log('got the data!', this.state.year, this.state.data)
-      })
-  }
+      });
+  };
 
   onUpdateYear = (ev, data) => {
     let year = ev.target.value;
@@ -42,29 +42,29 @@ class App extends Component {
     // console.log('Country Toggled: ', chosenCountry)
     // console.log('Chosen Countries: ', chosenCountries)
     // console.log(data.Country)
-    this.chooseCountry()
-    console.log('Index of Country: ', data)
-    console.log('Name of Country: ', )
+    // this.chooseCountry()
+    // console.log('Index of Country: ', data)
+    // console.log('Name of Country: ', )
 
     this.setState({
       isVisible: !this.state.isVisible,
       chosenCountries: this.state.chosenCountries
     });
-  }
+  };
 
-  chooseCountry = (data, index, info) => {
-    this.state.data.map((info) => (
-      console.log(info.Country) 
+  // chooseCountry = (data, index, info) => {
+  //   this.state.data.map((info) => (
+  //     console.log(info.Country) 
            
-    ))  
-  }
+  //   ))  
+  // };
 
   hideBar = () => {
     console.log('Hide Bar')
     this.setState({
       isVisible: !this.state.isVisible
-    });
-  }
+    })
+  };
 
   render(){
     return (
@@ -94,17 +94,15 @@ class App extends Component {
                   data={this.state.data}
                   year={this.state.year}
                   key={index}
-                  chosenCountries={this.state.chosenCountries}
-                >
-              </BarChart>
+                  chosenCountries={this.state.chosenCountries}/>                
               )) : null
             }
           </div>
       </div>
     </div>
     
-    );
+    )
   }
-}
+};
 
 export default App;

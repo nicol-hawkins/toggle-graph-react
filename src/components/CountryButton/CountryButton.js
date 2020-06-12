@@ -10,13 +10,11 @@ class CountryButton extends Component {
         <div 
           className={className} 
           onClick={this.props.gotClicked}
-          onChange={this.props.onChange}
-          >
-            {this.props.children || this.props.onToggle}
-        </div>
-    
-        );
-      }
-    }
+          onChange={this.props.onChange}>
+            {this.props.children}
+        </div>    
+    );
+  }
+};
 
 export default CountryButton;

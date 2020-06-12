@@ -29,6 +29,6 @@ class BarChart extends Component {
       </div>  
     );
   }
-}
+};
 
 export default BarChart;
